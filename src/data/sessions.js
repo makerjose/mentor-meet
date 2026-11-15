@@ -1,4 +1,4 @@
-
+// session data
 export const sessions = [
   { id: "morning", 
     label: "Morning session", 
