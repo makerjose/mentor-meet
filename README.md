@@ -11,8 +11,6 @@ MentorMeet is a React application for scheduling technical mentor (TM) sessions 
 - View upcoming appointments.
 - Mentor and appointment data are fetched from JSON Server rather than browser localStorage.
 
-> Search/filter, edit, and delete controls may be added as follow-up features. Do not assume they are present until their changes are merged into the repository.
-
 ## Requirements
 
 - Node.js and npm (use a current Node.js LTS release)
