@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer components {
+  .nav-link {
+    @apply flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-500 hover:bg-slate-50 transition-colors;
+  }
+  .nav-active {
+    @apply bg-violet-50 text-brand hover:bg-violet-50;
+  }
+  .calendar-arrow {
+    @apply flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed;
+  }
+  .step-number {
+    @apply w-9 h-9 shrink-0 rounded-xl bg-brand text-white flex items-center justify-center font-bold text-sm;
+  }
+  .form-field {
+    @apply w-full border border-slate-200 rounded-xl px-4 py-3 text-sm font-normal outline-none focus:border-brand focus:ring-2 focus:ring-violet-100 placeholder:text-slate-400;
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "mentors": [
+    {
+      "id": "tm-1",
+      "name": "Hamida Mstafa",
+      "specialty": "Frontend & React",
+      "initials": "HM",
+      "color": "violet"
+    },
+    {
+      "id": "tm-2",
+      "name": "Eric Mongare",
+      "specialty": "Backend & APIs",
+      "initials": "EM",
+      "color": "rose"
+    },
+    {
+      "id": "tm-3",
+      "name": "Fiona Kanyi",
+      "specialty": "Full Stack & Career",
+      "initials": "FK",
+      "color": "teal"
+    }
+  ],
+  "appointments": [
+    {
+      "date": "2026-11-16",
+      "mentorId": "tm-2",
+      "sessionId": "morning",
+      "studentName": "Joseph Deng",
+      "topic": "How to set up the json mock server.",
+      "id": 1
+    }
+  ]
+}
