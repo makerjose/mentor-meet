@@ -1,6 +1,10 @@
 import { useMemo, useState } from 'react';
 import { CalendarPlus2, ClipboardList } from 'lucide-react';
 
+import AppointmentCard from '../components/AppointmentCard';
+import AppointmentFilters from '../components/AppointmentFilters';
+import EditAppointmentModal from '../components/EditAppointmentModal';
+
 import { useAppointments } from '../context/AppointmentContext';
 import { sessions } from '../data/sessions';
 import { isSessionPast } from '../utils/dates';
@@ -136,6 +140,74 @@ export default function AppointmentsPage({ onNavigate }) {
           {upcoming.length}
         </span>
       </div>
+
+      {/* Filters */}
+      <AppointmentFilters
+        search={search}
+        setSearch={setSearch}
+        mentorFilter={mentorFilter}
+        setMentorFilter={setMentorFilter}
+        sessionFilter={sessionFilter}
+        setSessionFilter={setSessionFilter}
+        mentors={mentors}
+      />
+
+      {actionError && (
+        <p role="alert" className="text-red-600 mb-5">
+          {actionError}
+        </p>
+      )}
+
+      {loading ? (
+        <p className="text-slate-500">Loading appointments...</p>
+      ) : error ? (
+        <p role="alert" className="text-red-600">
+          {error}
+          <button onClick={refresh} className="underline ml-2">
+            Retry
+          </button>
+        </p>
+      ) : filteredAppointments.length > 0 ? (
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+          {filteredAppointments.map((appointment) => (
+            <AppointmentCard
+              key={appointment.id}
+              appointment={appointment}
+              mentors={mentors}
+              onEdit={setEditingAppointment}
+              onDelete={handleDelete}
+              deleting={deletingId === appointment.id}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="bg-white rounded-2xl border border-slate-200 py-16 px-5 text-center">
+          <ClipboardList
+            size={36}
+            className="mx-auto text-slate-300"
+          />
+
+          <h2 className="text-xl font-bold mt-4 text-ink">
+            No matching appointments
+          </h2>
+
+          <p className="text-slate-500 mt-2">
+            Try changing your search or filters.
+          </p>
+        </div>
+      )}
+
+      {/* Edit modal */}
+      {editingAppointment && (
+        <EditAppointmentModal
+          key={editingAppointment.id}
+          appointment={editingAppointment}
+          mentors={mentors}
+          appointments={appointments}
+          onSave={updateAppointment}
+          onClose={() => setEditingAppointment(null)}
+        />
+      )}
     </section>
   );
 }
