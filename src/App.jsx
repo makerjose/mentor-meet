@@ -1,3 +1,4 @@
+ 
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import BookingPage from "./pages/BookingPage";
@@ -8,6 +9,7 @@ import { AppointmentProvider } from "./context/AppointmentContext";
 export default function App() {
   const [page, setPage] = useState("book");
   return (
+    
     <AppointmentProvider>
       <div className="min-h-screen bg-canvas">
         <Navbar page={page} onNavigate={setPage} />
@@ -22,6 +24,7 @@ export default function App() {
           © {new Date().getFullYear()} MentorMeet · For better learning
         </footer>
       </div>
+       
     </AppointmentProvider>
   );
 }
