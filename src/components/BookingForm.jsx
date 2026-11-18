@@ -2,7 +2,8 @@ import { useState } from "react";
 import { X, CalendarDays, Clock3, UserRound } from "lucide-react";
 import { formatDate } from "../utils/dates";
 
-export default function BookingForm({ date, mentor, session, onClose, onSubmit }) {
+
+export default function BookingForm({date, mentor, session, onClose, onSubmit,}) {
   const [name, setName] = useState("");
   const [topic, setTopic] = useState("");
   const [error, setError] = useState("");
